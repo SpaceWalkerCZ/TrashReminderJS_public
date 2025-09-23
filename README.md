@@ -21,6 +21,17 @@ Includes automatic updates, email alerts, and a simple frontend dashboard.
 
 ## 🚀 Getting Started
 
+### 0. Node.js and npm
+Please refer to official npm guide: [Downloading and installing Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+
+Project made @ node & npm version:
+```bash
+node -v
+v22.19.0
+npm -v
+10.9.3
+```
+
 ### 1. Clone repository
 ```bash
 git clone https://github.com/SpaceWalkerCZ/TrashReminderJS_public.git
