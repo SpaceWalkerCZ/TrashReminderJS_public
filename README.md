@@ -11,9 +11,10 @@ Includes automatic updates, email alerts, and a simple frontend dashboard.
   - **Plasty, drobné kovy, nápojové kartony** (every 21 days from 06.10.2025)
   - **Bioodpad** (weekly in season, every 4 weeks off-season, on Fridays)
   - **Komunální odpad** (weekly → bi-weekly after 06.10.2025, Mondays)
+  - (Can be tailored for individual intervals)
 - 💾 Persistent cache in `cache.json`
-- 📧 Optional **email alerts** (Seznam.cz SMTP)
-- 🕰️ Automatic daily updates at **06:30** (cron job)
+- 📧 Optional **email alerts** (Seznam.cz SMTP or host of your choice)
+- 🕰️ Automatic daily updates at **06:30** (or at your desired time)
 - 🌗 Frontend with **day/night theme** and sorted collection bubbles
 
 ---
@@ -23,7 +24,7 @@ Includes automatic updates, email alerts, and a simple frontend dashboard.
 ### 1. Clone repository
 ```bash
 git clone https://github.com/SpaceWalkerCZ/TrashReminderJS_public.git
-cd TrashReminderJS
+cd TrashReminderJS_public
 ```
 Adjust start dates or frequencies in the functions if needed.
 Runs fine on small VPS or home server (Raspberry Pi, NAS, etc.).
@@ -37,14 +38,66 @@ npm fund
 ### 3. Configure email (optional)
 Edit the transporter in `index.js`
 ```js
-auth: {
-  user: "yourmail@seznam.cz",
-  pass: "yourpassword"
+//email alert setup
+const transporter = nodemailer.createTransport({
+    host: "smtp.seznam.cz",
+    port: 465,
+    secure: true,
+    auth: {
+        user: "", //<- add your mail
+        pass: "", //<- add your password
+    },
+    tls: {
+        rejectUnauthorized: false
+    }
+});
+```
+(Adjust host, port, secure and tls parameters if choosing other host/service)
+
+Add recipient(s) in `index.js`
+```js
+//email alert
+async function sendEmailAlertForToday(alerts) {
+    const message = {
+        from: '"Svoz odpadů" <example@seznam.cz>', //<- edit your (sender) mail
+        to: [], //<- add a recipient like "example@example.com" or recipients like ["example@example.com", "example2@example.com"]
+        subject: "Dnes je svoz odpadu",
+        html: `<p>Dnes se sváží následující druhy odpadu:</p>
+               <ul>
+                 ${alerts.map(a => `<li>${a}</li>`).join('')}
+               </ul>`,
+    };
+    await transporter.sendMail(message);
 }
 ```
-(Adjust host, port, secure and tls parameters if choosing other host)
 
-### 4. Run server
+Uncomment line in `index.js`
+```js
+//data update
+async function updateDataAndNotify() {
+    //irrelevant code not included
+
+    if (alerts.length > 0) {
+        console.log("ALERT: Today is collection day for:", alerts.join(", "));
+        // await sendEmailAlertForToday(alerts); //<- uncomment to send mails
+    } else {
+        console.log("No collection today.");
+    }
+}
+```
+
+### 4. Configure cron-job (optional)
+Edit schedule in `index.js`
+```js
+//cron job
+//every day at 6:30 server time
+cron.schedule('30 6 * * *', () => { //<- edit interval here
+    console.log("Running scheduled update at 06:30");
+    updateDataAndNotify().catch(console.error);
+});
+```
+
+### 5. Run server
 ```bash
 node index.js
 ```
