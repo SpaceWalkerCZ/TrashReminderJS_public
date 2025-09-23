@@ -6,6 +6,7 @@
 # Datasource local storage ignored files
 /dataSources/
 /dataSources.local.xml
+# Visual Studio ignored files
 /.vs/
 /.vs
 /.vs/VSWorkspaceState.json
@@ -17,5 +18,7 @@
 /.idea/modules.xml
 /.idea/TrashScraper.iml
 /.idea/vcs.xml
+# npm ignored files
 /node_modules/
+# app ignored files
 /cache.json

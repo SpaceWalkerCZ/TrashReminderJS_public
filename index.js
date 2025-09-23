@@ -117,8 +117,8 @@ const transporter = nodemailer.createTransport({
     port: 465,
     secure: true,
     auth: {
-        user: "", //<--------------------------------------------------------- SENDER MAIL @seznam.cz
-        pass: "", //<--------------------------------------------------------- SENDER PASS
+        user: "", //<--------------------------------------------------------- add your mail
+        pass: "", //<--------------------------------------------------------- add your password
     },
     tls: {
         rejectUnauthorized: false
@@ -128,8 +128,8 @@ const transporter = nodemailer.createTransport({
 //email alert
 async function sendEmailAlertForToday(alerts) {
     const message = {
-        from: '"Svoz odpadů" <example@seznam.cz>', //<--------------------------------------------------------- SENDER MAIL <example@seznam.cz>
-        to: [], //<--------------------------------------------------------- RECIPIENTS MAIL ["example@example.com", "example2@example.com"]
+        from: '"Svoz odpadů" <example@seznam.cz>', //<- edit your (sender) mail
+        to: [], //<- add a recipient like "example@example.com" or recipients like ["example@example.com", "example2@example.com"]
         subject: "Dnes je svoz odpadu",
         html: `<p>Dnes se sváží následující druhy odpadu:</p>
                <ul>
@@ -180,7 +180,7 @@ async function updateDataAndNotify() {
 
     if (alerts.length > 0) {
         console.log("ALERT: Today is collection day for:", alerts.join(", "));
-        // await sendEmailAlertForToday(alerts); //<--------------------------------------------------------- UNCOMMENT TO SEND MAILS
+        // await sendEmailAlertForToday(alerts); //<--------------------------------------------------------- uncomment to send mails
     } else {
         console.log("No collection today.");
     }
@@ -188,7 +188,7 @@ async function updateDataAndNotify() {
 
 //cron job
 //every day at 6:30 server time
-cron.schedule('30 6 * * *', () => {
+cron.schedule('30 6 * * *', () => { //<--------------------------------------------------------- edit interval here
     console.log("Running scheduled update at 06:30");
     updateDataAndNotify().catch(console.error);
 });
