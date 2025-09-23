@@ -16,6 +16,7 @@ Includes automatic updates, email alerts, and a simple frontend dashboard.
 - 📧 Optional **email alerts** (Seznam.cz SMTP or host of your choice)
 - 🕰️ Automatic daily updates at **06:30** (or at your desired time)
 - 🌗 Frontend with **day/night theme** and sorted collection bubbles
+- 🇨🇿 Czech localization
 
 ---
 
