@@ -1,5 +1,5 @@
 {
-  "name": "TrashReminderJS",
+  "name": "TrashReminderJS_public",
   "version": "1.0.0",
   "description": "Tracks and displays upcoming waste collection dates. Optional email alerts.",
   "main": "index.js",
