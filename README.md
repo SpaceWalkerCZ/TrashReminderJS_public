@@ -22,7 +22,7 @@ Includes automatic updates, email alerts, and a simple frontend dashboard.
 
 ### 1. Clone repository
 ```bash
-git clone https://github.com/SpaceWalkerCZ/TrashReminderJS.git
+git clone https://github.com/SpaceWalkerCZ/TrashReminderJS_public.git
 cd TrashReminderJS
 ```
 Adjust start dates or frequencies in the functions if needed.
