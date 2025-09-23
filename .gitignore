@@ -14,7 +14,7 @@
 /.vs/TrashScraper/v17/DocumentLayout.json
 /.vs/TrashScraper/v17/DocumentLayout.backup.json
 /.vs/TrashScraper/v17/.wsuo
-/package-lock.json
+# WebStorm ignored files
 /.idea/modules.xml
 /.idea/TrashScraper.iml
 /.idea/vcs.xml
@@ -22,3 +22,4 @@
 /node_modules/
 # app ignored files
 /cache.json
+/package-lock.json
