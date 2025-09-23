@@ -17,3 +17,6 @@
 /.idea/modules.xml
 /.idea/TrashScraper.iml
 /.idea/vcs.xml
+/node_modules/
+/cache.json
+/cache.json
