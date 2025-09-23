@@ -119,10 +119,9 @@ node index.js
 - GET / -> Web dashboard
 - GET /data -> Raw JSON cache
 
-
 ## 🔔 Email Alerts
 - Triggered when today is collection day
-- Sent automatically at 06:30 server time
+- Sent automatically at 06:30 server time (configurable)
 - To enable: uncomment the `sendEmailAlertForToday(alerts)` line
 
 ## 🖥️ Frontend
@@ -130,6 +129,8 @@ node index.js
 - Today’s collections are highlighted red/bold
 - Cards are auto-sorted by nearest collection date
 - Day/night mode based on local time
+<img width="355" height="454" alt="image" src="https://github.com/user-attachments/assets/095d6777-3071-4d3e-835b-2fbaa1b71325" />
+<img width="361" height="451" alt="image" src="https://github.com/user-attachments/assets/e970db4c-b35d-4835-9272-019857a6318a" />
 
 ## ⚙️ Tech Stack
 - [Express](https://expressjs.com/)
