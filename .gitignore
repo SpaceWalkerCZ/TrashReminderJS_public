@@ -1,0 +1,19 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+/.vs/
+/.vs
+/.vs/VSWorkspaceState.json
+/.vs/slnx.sqlite
+/.vs/TrashScraper/v17/DocumentLayout.json
+/.vs/TrashScraper/v17/DocumentLayout.backup.json
+/.vs/TrashScraper/v17/.wsuo
+/package-lock.json
+/.idea/modules.xml
+/.idea/TrashScraper.iml
+/.idea/vcs.xml
