@@ -9,8 +9,8 @@ Includes automatic updates, email alerts, and a simple frontend dashboard.
 - 📅 Calculates next collection dates for:
   - **Papír** (every 28 days from 15.10.2025)
   - **Plasty, drobné kovy, nápojové kartony** (every 21 days from 06.10.2025)
-  - **Bioodpad** (weekly in season, every 4 weeks off-season, on Fridays)
-  - **Komunální odpad** (weekly → bi-weekly after 06.10.2025, Mondays)
+  - **Bioodpad** (weekly in season, every 3 weeks off-season, on Fridays)
+  - **Komunální odpad** (weekly → bi-weekly after 29.09.2025, Mondays)
   - (Can be tailored for individual intervals)
 - 💾 Persistent cache in `cache.json`
 - 📧 Optional **email alerts** (Seznam.cz SMTP or host of your choice)
