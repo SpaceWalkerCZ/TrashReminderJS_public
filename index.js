@@ -82,7 +82,7 @@ function getNextBioDate(today) {
 }
 
 function getNextKomunalDate(today) {
-    const switchDate = new Date(2025, 9, 13); //start 2 week collection 13.10.2025
+    const switchDate = new Date(2025, 8, 29); //start 2 week collection 29.09.2025
     const weekday = 1;     // Monday
     const preSwitchFrequency = 7;   // weekly
     const postSwitchFrequency = 14; // every 2 weeks
