@@ -33,14 +33,14 @@ function formatCzechDate(date) {
 function getNextPapirDate(today) {
     const start = new Date(2025, 9, 15); //start 15.10.2025
     let next = new Date(start);
-    while (next < today) next.setDate(next.getDate() + 28); //repeat 28 days
-    return next;
+    while (next < today) next.setDate(next.getDate() + 28); //every 4 weeks
+    return next; 
 }
 
 function getNextPlastyDate(today) {
     const start = new Date(2025, 9, 6); //start 06.10.2025
     let next = new Date(start);
-    while (next < today) next.setDate(next.getDate() + 21); //repeat 21 days
+    while (next < today) next.setDate(next.getDate() + 21); //every 3 weeks
     return next;
 }
 
@@ -51,8 +51,6 @@ function getNextBioDate(today) {
     const seasonStart = new Date(year, 2, 1);   // 01.03
     const seasonEnd = new Date(year, 10, 30); // 30.11
 
-    // Frequencies
-    const inSeasonFrequency = 7;   // weekly
     const offSeasonFrequency = 21; // every 3 weeks
     const collectionWeekday = 5;   // Friday (0 = Sunday)
 
@@ -61,7 +59,8 @@ function getNextBioDate(today) {
     // --- In-season collections ---
     if (today >= seasonStart && today <= seasonEnd) {
         const daysUntilNext = (collectionWeekday - nextDate.getDay() + 7) % 7;
-        nextDate.setDate(nextDate.getDate() + (daysUntilNext === 0 ? inSeasonFrequency : daysUntilNext));
+        if (daysUntilNext === 0) return nextDate; // today is collection
+        nextDate.setDate(nextDate.getDate() + daysUntilNext);
         return nextDate;
     }
 
@@ -84,7 +83,6 @@ function getNextBioDate(today) {
 function getNextKomunalDate(today) {
     const switchDate = new Date(2025, 8, 29); //start 2 week collection 29.09.2025
     const weekday = 1;     // Monday
-    const preSwitchFrequency = 7;   // weekly
     const postSwitchFrequency = 14; // every 2 weeks
 
     let nextDate = new Date(today);
