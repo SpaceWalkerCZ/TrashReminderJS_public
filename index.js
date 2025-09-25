@@ -33,14 +33,14 @@ function formatCzechDate(date) {
 function getNextPapirDate(today) {
     const start = new Date(2025, 9, 15); //start 15.10.2025
     let next = new Date(start);
-    while (next <= today) next.setDate(next.getDate() + 28); //repeat 28 days
+    while (next < today) next.setDate(next.getDate() + 28); //repeat 28 days
     return next;
 }
 
 function getNextPlastyDate(today) {
     const start = new Date(2025, 9, 6); //start 06.10.2025
     let next = new Date(start);
-    while (next <= today) next.setDate(next.getDate() + 21); //repeat 21 days
+    while (next < today) next.setDate(next.getDate() + 21); //repeat 21 days
     return next;
 }
 
@@ -75,7 +75,7 @@ function getNextBioDate(today) {
 
     // Step forward in 4-week intervals until > today
     nextDate = new Date(lastSeasonCollection);
-    while (nextDate <= today) {
+    while (nextDate < today) {
         nextDate.setDate(nextDate.getDate() + offSeasonFrequency);
     }
     return nextDate;
@@ -104,7 +104,7 @@ function getNextKomunalDate(today) {
     let cycleStart = new Date(switchDate);
     nextDate = new Date(cycleStart);
 
-    while (nextDate <= today) {
+    while (nextDate < today) {
         nextDate.setDate(nextDate.getDate() + postSwitchFrequency);
     }
 
