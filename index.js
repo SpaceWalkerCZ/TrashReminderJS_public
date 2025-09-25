@@ -53,7 +53,7 @@ function getNextBioDate(today) {
 
     // Frequencies
     const inSeasonFrequency = 7;   // weekly
-    const offSeasonFrequency = 28; // every 4 weeks
+    const offSeasonFrequency = 21; // every 3 weeks
     const collectionWeekday = 5;   // Friday (0 = Sunday)
 
     let nextDate = new Date(today);
@@ -82,7 +82,7 @@ function getNextBioDate(today) {
 }
 
 function getNextKomunalDate(today) {
-    const switchDate = new Date(2025, 9, 6); //start 2 week collection 06.10.2025
+    const switchDate = new Date(2025, 9, 13); //start 2 week collection 13.10.2025
     const weekday = 1;     // Monday
     const preSwitchFrequency = 7;   // weekly
     const postSwitchFrequency = 14; // every 2 weeks
